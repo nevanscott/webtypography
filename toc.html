@@ -1,0 +1,65 @@
+---
+permalink: /toc/
+---
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+<title>Table of Contents | The Elements of Typographic Style Applied to the Web</title>
+{% include headlinks.html %}
+<style type="text/css">
+OL {list-style:none}
+</style>
+</head>
+
+<body class="bits">
+{% include header.html %}
+
+<div id="main">
+<h1>Table of Contents</h1>
+<ol id='toc'>
+	<li><a href="/">Front cover</a></li>
+	<li style="margin-bottom:1.5em"><a href="/intro/">Introduction</a></li>
+
+{% for chapter in site.data.chapters %}
+	<li id='{{ chapter[0] }}'>
+		<span>{{ chapter[0] }}</span><h3>{{ chapter[1].title }}</h3>
+		<ol>
+			{% for section in chapter[1].sections %}
+				<li id='{{ chapter[0] }}.{{ section[0] }}'>
+					{% capture section_num %}{{ chapter[0] }}.{{ section[0] }}{% endcapture %}
+					<span>{{ section_num }}</span><h4>{{ section[1] }}</h4>
+					<ol>
+						{% for item in site.items %}
+							{% assign item_num = item.url | remove:'/' %}
+							{% assign item_ar = item_num | split:'.' %}
+							{% capture item_section %}{{ item_ar[0] }}.{{ item_ar[1] }}{% endcapture %}
+							{% if item_section == section_num %}
+								<li id='{{ item_num }}'><span>{{ item_num }} </span><a href="{{ item.url }}">{{ item.title }}</a></li>
+							{% endif %}
+						{% endfor %}
+					</ol>
+				</li>
+			{% endfor %}
+		</ol>
+	</li>
+{% endfor %}
+
+	<li><h3>Reference</h3>
+		<ol id="reference">
+			<li><a href="/bibliography/">Bibliography</a></li>
+		</ol>
+	</li>
+</ol>
+
+
+</div> <!-- /main -->
+
+<div id="supp">
+<h3>Note</h3>
+<p>This is a work in progress. The entire site is now open source, so please feel free to contribute by <a href="https://github.com/clagnut/webtypography">forking it on GitHub</a>.</p>
+</p>
+</div> <!-- /supp -->
+
+{% include footer.html %}
+</body>
+</html>

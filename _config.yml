@@ -1,0 +1,12 @@
+url: webtypography.net
+collections:
+  items:
+    output: true
+    permalink: /:path/
+defaults:
+  -
+    scope:
+      path: ""
+      type: items
+    values:
+      layout: item

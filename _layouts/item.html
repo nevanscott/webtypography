@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+<title>{{ page.title }} | The Elements of Typographic Style Applied to the Web</title>
+{% include headlinks.html %}
+</head>
+
+<body>
+{% include header.html %}
+
+{% assign item_num = page.url | remove:'/' %}
+{% assign item_ar = item_num | split:'.' %}
+{% assign item_chapter = item_ar[0] | plus:'0' %}
+{% assign item_section = item_ar[1] | plus:'0' %}
+{% assign title = page.title %}
+
+<div id="main">
+<h1><span>{{ item_num }} </span>{{ title }}</h1>
+
+
+{{ content }}
+
+</div> <!-- /main -->
+
+<div id="supp">
+{% for chapter in site.data.chapters %}
+	{% if chapter[0] == item_chapter %}
+		<h2><a href="/toc/#{{ chapter[0] }}" title="View chapter contents">{{ chapter[1].title }}</a></h2>
+		{% for section in chapter[1].sections %}
+			{% if section[0] == item_section %}
+				<h3><span>&#167; </span><a href="/toc/#{{ item_chapter }}.{{ item_section }}" title="View section contents">{{ section[1] }}</a></h3>
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+{% endfor %}
+
+
+<ul id="nextprev">
+{% for item in site.items %}
+	{% if current %}
+		{% unless next %}
+			{% assign next = item %}
+		{% endunless %}
+	{% endif %}
+	{% if page.url == item.url %}
+		{% if last_item %}
+			{% assign prev = last_item %}
+		{% endif %}
+		{% assign current = item %}
+	{% endif %}
+	{% assign last_item = item %}
+{% endfor %}
+{% if next %}
+	<li><span>&#8594;</span><a href='{{ next.url }}' title='Read next guideline'>{{ next.title }}</a></li>
+{% endif %}
+{% if prev %}
+	<li><span>&#8592;</span><a href='{{ prev.url }}' title='Read previous guideline'>{{ prev.title }}</a></li>
+{% endif %}
+</ul>
+
+{% include references.html %}
+{% include book.html %}
+</div> <!-- /supp -->
+
+
+{% include footer.html %}
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+<title>Use titling figures with full caps, and text figures in all other circumstances | The Elements of Typographic Style Applied to the Web</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="/css/screen.css" />
+<!--[if lte IE 7]>
+<link rel="stylesheet" type="text/css" href="/css/ie-lte-7.css" />
+<![endif]-->
+<link rel="stylesheet" href="http://fontdeck.com/s/css/p+zwVqq4agQiKsiAkUNVfzsNquo/webtypography.net/1575.css" type="text/css" />
+</head>
+
+<body>
+<div id="header">
+<a href="/toc/" title="Go to table of contents">The Elements <span class="of">of</span> Typographic Style Applied <span>to the</span> Web</a>
+</div>
+
+
+
+
+
+
+
+<div id="main">
+<h1><span>3.2.1 </span>Use titling figures with full caps, and text figures in all other circumstances</h1>
+
+
+<blockquote class='quote-from-book'>	<p><span class='ic'>“</span>When arabic numerals joined the roman alphabet, they too were given both lowercase and uppercase forms. Typographers call the former <cite>text figures</cite>, <cite>hanging figures</cite>, <cite>lowercase figures</cite>, or <cite>old-style figures</cite> <span class='bracket'>(</span>OSF for short<span class='bracket'>)</span> and make a point of using them whenever the surrounding text is set in lowercase letters or small caps. The alternative forms are called <cite>titling figures</cite>, <cite>ranging figures</cite> or <cite>lining figures</cite>, because they range or align with the upper&nbsp;case.<br />
+<span class='bracket'>[</span>…<span class='bracket'>]</span><br />
+<span class='bracket'>[</span>Text figures<span class='bracket'>]</span> are basic parts of typographic speech, and they are a sign that dollars are not really twice as important as ideas, and numbers are not afraid to consort on an equal footing with words. <span class='bracket'>[</span>…<span class='bracket'>]</span> However common it may be, the use of titling figures in running text is illiterate: it spurns the truth of letters.”</p>
+ </blockquote>
+	<p>Many core web fonts <span class='bracket'>(</span>indeed most digital fonts<span class='bracket'>)</span> ship with only one case of figures: Arial, Comic Sans, Helvetica, Tahoma, Times, Times New Roman, Trebuchet and Verdana all ship with titling figures only. Georgia is the sole holder of text figures <span class='bracket'>(</span>but lacks titling&nbsp;figures<span class='bracket'>)</span>.</p>
+
+	<p>Microsoft’s new ‘C’ fonts however, are very strong with respect to their numerals. All six typefaces <span class='bracket'>(</span>including the fixed-width Consolas<span class='bracket'>)</span> have both titling and text figures included in the base fonts. Further, three of the fonts default to titling figures <span class='bracket'>(</span>Calibri, Cambria, and Consolas<span class='bracket'>)</span>, the other three to text figures <span class='bracket'>(</span>Candara, Constantia, and Corbel<span class='bracket'>)</span>. Constantia and Corbel even include small variants of their lining figures for use with text set in small&nbsp;capitals.</p>
+
+	<p>Despite the bright hope for the future brought by Microsoft’s ‘C’ fonts, <abbr title="Cascading Style Sheets">CSS</abbr> currently makes no provision for the control of numeral case, this means the default figures will always be used, regardless of&nbsp;context.</p>
+
+	<h2>The&nbsp;Future</h2>
+
+	<p>The <a href="http://www.w3.org/TR/css3-fonts/"><abbr>CSS3</abbr>&nbsp;fonts module</a> is still a working draft, but is being actively revised. The current <a href="http://dev.w3.org/csswg/css3-fonts/">editor’s draft</a> includes a proposal for supporting specification of lining or old-style numbers through the <code>font-variant-numeric</code>&nbsp;property.</p>
+
+	<p>For example, one could specify old-style figures using the <code>oldstyle-nums</code> value as&nbsp;follows:</p>
+
+<pre><code>p {
+  font-variant-numeric: oldstyle-nums;
+}</code></pre>
+
+	<p>To specify titling figures, one would use a value of <code>lining-nums</code>.</p>
+ 
+
+</div> <!-- /main -->
+
+<div id="supp">
+
+	
+
+	
+		<h2><a href="/toc/#3" title="View chapter contents">Harmony & Counterpoint</a></h2>
+		
+			
+		
+			
+				<h3><span>&#167; </span><a href="/toc/#3.2" title="View section contents">Numerals, Capitals & Small Caps</a></h3>
+			
+		
+	
+
+
+
+<ul id="nextprev">
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+		
+			
+		
+		
+	
+	
+
+
+
+	<li><span>&#8592;</span><a href='/3.1.1/' title='Read previous guideline'>Don’t compose without a scale</a></li>
+
+</ul>
+
+<div id="refs">
+<h3>Reference</h3>
+<ul>
+	<li><a href="/toc/">Table of Contents</a></li>
+	<li><a href="/intro/">Introduction</a></li>
+	<li><a href="/bibliography/">Bibliography</a></li>
+</ul>
+</div> <!-- /refs -->
+<div id="thebook"> <!-- Amazon referrals help RR pay for hosting -->
+<p><a href="http://www.amazon.co.uk/exec/obidos/ASIN/0881792128/jalfrezi-21/" title="More information on ‘The Elements of Typographic Style’ at Amazon"><img src="/i/book.png" alt="Cover of ‘The Elements of Typographic Style’ by Robert Bringhurst" style="width:100px" /></a></p>
+</div> <!-- /thebook -->
+</div> <!-- /supp -->
+
+
+<p id="footer">
+This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>. It was <a href="http://www.clagnut.com/blog/1600/">created</a> and is maintained by <a href="http://www.clagnut.com/">Richard Rutter</a>. Please feel free to contribute by <a href="https://github.com/clagnut/webtypography">forking it on GitHub</a>.
+</p>
+</body>
+</html>

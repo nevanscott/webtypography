@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+<title>Indent or center verse quotations | The Elements of Typographic Style Applied to the Web</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="/css/screen.css" />
+<!--[if lte IE 7]>
+<link rel="stylesheet" type="text/css" href="/css/ie-lte-7.css" />
+<![endif]-->
+<link rel="stylesheet" href="http://fontdeck.com/s/css/p+zwVqq4agQiKsiAkUNVfzsNquo/webtypography.net/1575.css" type="text/css" />
+</head>
+
+<body>
+<div id="header">
+<a href="/toc/" title="Go to table of contents">The Elements <span class="of">of</span> Typographic Style Applied <span>to the</span> Web</a>
+</div>
+
+
+
+
+
+
+
+<div id="main">
+<h1><span>2.3.4 </span>Indent or center verse quotations</h1>
+
+
+<blockquote class='quote-from-book'>	<p><span class='ic'>“</span>Verse is usually set flush left and ragged right, and verse quotations within prose should not be deprived of their chosen form. But to distinguish verse quotations from surrounding prose, they should be indented or centered on the longest line.”</p>
+ </blockquote>
+	<p>When setting verse, whether on the web or otherwise, the primary concern is not to deprive it of its “chosen form”, including matters of spacing and visual structure <span class='bracket'>(</span>as this is considered, in many poetic works, to be at least as important as the words themselves<span class='bracket'>)</span>. As such, a <code>pre</code> <span class='bracket'>(</span>pre-formatted<span class='bracket'>)</span> element is most apt to setting&nbsp;verse.</p>
+
+<pre><code>&lt;blockquote class="verse"&gt;
+&lt;pre&gt;God guard me from those thoughts men think
+In the mind alone;
+He that sings a lasting song
+Thinks in a marrow bone.&lt;/pre&gt;
+&lt;/blockquote&gt;</code></pre>
+
+	<p>In its default state the <code>pre</code> element is usually rendered using a monospaced font, so this should normally be changed to a more fitting typeface. Setting the <code>font-family</code> to inherit the typeface from the surrounding text may be a good&nbsp;start:</p>
+
+<pre><code>.verse pre {
+  font-family: inherit;
+}</code></pre>
+
+	<p>A logical way to center the verse on the longest line would be to simply specify <code>width:auto</code> and <code>margin:0 auto</code>. Unfortunately, due to browsers’ rendering of preformatted elements, the element will still be considered to comprise full-width lines, so no centering will occur. However we can work around this by specifying the <code>pre</code> element to display as a <code>table</code> as&nbsp;follows:</p>
+
+<pre><code>.verse pre {
+  font-family: inherit;
+  display: table;
+  width: auto;
+  margin: 0 auto;
+}</code></pre>
+
+	<p>The preceding rules achieve the desired layout in Firefox, Safari and Opera 9. However <code>margin:0 auto</code> will not center elements in Internet Explorer 6&nbsp;or 7, without a specific width being set. To work around this, a new <code>span</code> element containing the entire block of verse must be nested within the <code>pre</code> element as&nbsp;follows:</p>
+
+<pre><code>&lt;blockquote class="verse"&gt;
+&lt;pre&gt;&lt;span&gt;God guard me from those thoughts men think
+In the mind alone;
+He that sings a lasting song
+Thinks in a marrow bone.&lt;/span&gt;&lt;/pre&gt;
+&lt;/blockquote&gt;</code></pre>
+
+	<p>This <code>span</code> can then be centered in Internet Explorer applying  <code>text-align:center</code> to the <code>pre</code> and resetting the text alignment on the <code>span</code>&nbsp;element.</p>
+
+<pre><code>.verse pre {
+  text-align: center;
+}
+
+.verse pre span {
+  text-align: left;
+}</code></pre>
+
+	<p>Much like other browsers, Internet Explorer considers any preformatted content to have full-width lines; to counter this, the <code>span</code> can be set to <code>display:inline-block</code>. This in turn causes Internet Explorer to ignore white-space formatting, so we must re-set the <code>span</code> to <code>white-space:pre</code>. This gives&nbsp;us:</p>
+
+<pre><code>.verse pre {
+  text-align: center;
+}
+
+.verse pre span {
+  text-align: left;
+  display: inline-block;
+  white-space: pre;
+}</code></pre>
+
+	<p>The <code>display:inline-block</code> in the preceding rule causes Gecko-based browsers such as Firefox and Camino to incorrectly render the contents. Fortunately these rules are only required for Internet Explorer, so we can write them in a separate style sheet, included using conditional comments <span class='bracket'>(</span>see <a href="http://www.quirksmode.org/css/condcom.html" title="Quirksmode: &#013;Conditional comments">Quirksmode</a> for more&nbsp;info<span class='bracket'>)</span>:</p>
+
+<pre><code>&lt;!-<span class='bracket'>[</span>if lte IE 7<span class='bracket'>]</span>&gt;
+&lt;link rel="stylesheet" type="text/css" href="ie-lte-7.css" /&gt;
+&lt;!<span class='bracket'>[</span>endif<span class='bracket'>]</span>-&gt;</code></pre>
+
+	<p>Here’s the final rendered example of prose, set flush left &#38; ragged right, and centered on the longest&nbsp;line:</p>
+
+	<div class="example"><blockquote class="ex2-3-4"><pre><span>God guard me from those thoughts men think
+In the mind alone;
+He that sings a lasting song
+Thinks in a marrow bone.</span></pre></blockquote></div>
+ 
+
+</div> <!-- /main -->
+
+<div id="supp">
+
+	
+		<h2><a href="/toc/#2" title="View chapter contents">Rhythm & Proportion</a></h2>
+		
+			
+		
+			
+		
+			
+				<h3><span>&#167; </span><a href="/toc/#2.3" title="View section contents">Blocks & Paragraphs</a></h3>
+			
+		
+			
+		
+	
+
+	
+
+
+
+<ul id="nextprev">
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+		
+			
+		
+		
+	
+	
+
+	
+		
+			
+		
+	
+	
+	
+
+	
+		
+	
+	
+	
+
+	
+		
+	
+	
+	
+
+	
+		
+	
+	
+	
+
+	
+		
+	
+	
+	
+
+	
+		
+	
+	
+	
+
+	
+		
+	
+	
+	
+
+
+	<li><span>&#8594;</span><a href='/2.4.1/' title='Read next guideline'>At hyphenated line-ends, leave at least two characters behind and take at least three forward</a></li>
+
+
+	<li><span>&#8592;</span><a href='/2.3.3/' title='Read previous guideline'>Add extra lead before and after block quotations</a></li>
+
+</ul>
+
+<div id="refs">
+<h3>Reference</h3>
+<ul>
+	<li><a href="/toc/">Table of Contents</a></li>
+	<li><a href="/intro/">Introduction</a></li>
+	<li><a href="/bibliography/">Bibliography</a></li>
+</ul>
+</div> <!-- /refs -->
+<div id="thebook"> <!-- Amazon referrals help RR pay for hosting -->
+<p><a href="http://www.amazon.co.uk/exec/obidos/ASIN/0881792128/jalfrezi-21/" title="More information on ‘The Elements of Typographic Style’ at Amazon"><img src="/i/book.png" alt="Cover of ‘The Elements of Typographic Style’ by Robert Bringhurst" style="width:100px" /></a></p>
+</div> <!-- /thebook -->
+</div> <!-- /supp -->
+
+
+<p id="footer">
+This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>. It was <a href="http://www.clagnut.com/blog/1600/">created</a> and is maintained by <a href="http://www.clagnut.com/">Richard Rutter</a>. Please feel free to contribute by <a href="https://github.com/clagnut/webtypography">forking it on GitHub</a>.
+</p>
+</body>
+</html>
